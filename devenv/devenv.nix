@@ -51,8 +51,8 @@
           sd
           shellcheck
           starship
-          # terraform
-          # terraform-docs
+          terraform
+          terraform-docs
           tfsec
           unzip
           uutils-coreutils-noprefix
