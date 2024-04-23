@@ -61,6 +61,7 @@
           xcp
           xsel
           yq
+          yarn
           zellij
           zip
           zsh
