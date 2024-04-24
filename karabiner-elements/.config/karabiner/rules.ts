@@ -38,35 +38,16 @@ const rules: KarabinerRules[] = [
         ],
         type: "basic",
       },
-      //      {
-      //        type: "basic",
-      //        description: "Disable CMD + Tab to force Hyper Key usage",
-      //        from: {
-      //          key_code: "tab",
-      //          modifiers: {
-      //            mandatory: ["left_command"],
-      //          },
-      //        },
-      //        to: [
-      //          {
-      //            key_code: "tab",
-      //          },
-      //        ],
-      //      },
     ],
   },
   ...createHyperSubLayers({
-    spacebar: open(
-      "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
-    ),
+    spacebar: app("Screenshot"),
     // b = "B"rowse
     b: {
-      t: open("https://twitter.com"),
-      // Quarterly "P"lan
-      p: open("https://qrtr.ly/plan"),
-      y: open("https://news.ycombinator.com"),
-      f: open("https://facebook.com"),
-      r: open("https://reddit.com"),
+      w: open(
+        "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/1-46892/Norge/Vestfold/T%C3%B8nsberg/Eik"
+      ),
+      g: open("https://github.com"),
     },
     // o = "Open" applications
     o: {
@@ -84,82 +65,89 @@ const rules: KarabinerRules[] = [
     },
 
     // w = "Window" via rectangle.app
-    // w: {
-    //   semicolon: {
-    //     description: "Window: Hide",
-    //     to: [
-    //       {
-    //         key_code: "h",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   y: rectangle("previous-display"),
-    //   o: rectangle("next-display"),
-    //   k: rectangle("top-half"),
-    //   j: rectangle("bottom-half"),
-    //   h: rectangle("left-half"),
-    //   l: rectangle("right-half"),
-    //   f: rectangle("maximize"),
-    //   u: {
-    //     description: "Window: Previous Tab",
-    //     to: [
-    //       {
-    //         key_code: "tab",
-    //         modifiers: ["right_control", "right_shift"],
-    //       },
-    //     ],
-    //   },
-    //   i: {
-    //     description: "Window: Next Tab",
-    //     to: [
-    //       {
-    //         key_code: "tab",
-    //         modifiers: ["right_control"],
-    //       },
-    //     ],
-    //   },
-    //   n: {
-    //     description: "Window: Next Window",
-    //     to: [
-    //       {
-    //         key_code: "grave_accent_and_tilde",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   b: {
-    //     description: "Window: Back",
-    //     to: [
-    //       {
-    //         key_code: "open_bracket",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   // Note: No literal connection. Both f and n are already taken.
-    //   m: {
-    //     description: "Window: Forward",
-    //     to: [
-    //       {
-    //         key_code: "close_bracket",
-    //         modifiers: ["right_command"],
-    //       },
-    //     ],
-    //   },
-    //   d: {
-    //     description: "Window: Next display",
-    //     to: [
-    //       {
-    //         key_code: "right_arrow",
-    //         modifiers: ["right_control", "right_option", "right_command"],
-    //       },
-    //     ],
-    //   },
-    // },
+    w: {
+      semicolon: {
+        description: "Window: Hide",
+        to: [
+          {
+            key_code: "h",
+            modifiers: ["right_command"],
+          },
+        ],
+      },
+      y: rectangle("previous-display"),
+      o: rectangle("next-display"),
+      k: rectangle("top-half"),
+      j: rectangle("bottom-half"),
+      h: rectangle("left-half"),
+      l: rectangle("right-half"),
+      f: rectangle("maximize"),
+      u: {
+        description: "Window: Previous Tab",
+        to: [
+          {
+            key_code: "tab",
+            modifiers: ["right_control", "right_shift"],
+          },
+        ],
+      },
+      i: {
+        description: "Window: Next Tab",
+        to: [
+          {
+            key_code: "tab",
+            modifiers: ["right_control"],
+          },
+        ],
+      },
+      n: {
+        description: "Window: Next Window",
+        to: [
+          {
+            key_code: "grave_accent_and_tilde",
+            modifiers: ["right_command"],
+          },
+        ],
+      },
+      b: {
+        description: "Window: Back",
+        to: [
+          {
+            key_code: "open_bracket",
+            modifiers: ["right_command"],
+          },
+        ],
+      },
+      // Note: No literal connection. Both f and n are already taken.
+      m: {
+        description: "Window: Forward",
+        to: [
+          {
+            key_code: "close_bracket",
+            modifiers: ["right_command"],
+          },
+        ],
+      },
+      d: {
+        description: "Window: Next display",
+        to: [
+          {
+            key_code: "right_arrow",
+            modifiers: ["right_control", "right_option", "right_command"],
+          },
+        ],
+      },
+    },
 
     // s = "System"
     s: {
+      c: {
+        to: [
+          {
+            key_code: "caps_lock",
+          },
+        ],
+      },
       u: {
         to: [
           {
@@ -219,23 +207,6 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // Turn on Elgato KeyLight
-      y: {
-        to: [
-          {
-            shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 1, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-          },
-        ],
-      },
-      h: {
-        to: [
-          {
-            shell_command: `curl -H 'Content-Type: application/json' --request PUT --data '{ "numberOfLights": 1, "lights": [ { "on": 0, "brightness": 100, "temperature": 215 } ] }' http://192.168.8.84:9123/elgato/lights`,
-          },
-        ],
-      },
-      // "D"o not disturb toggle
-      d: open(`raycast://extensions/yakitrak/do-not-disturb/toggle`),
     },
 
     // v = "moVe" which isn't "m" because we want it to be on the left hand
@@ -294,6 +265,7 @@ const rules: KarabinerRules[] = [
       h: open(
         "raycast://extensions/raycast/clipboard-history/clipboard-history"
       ),
+      m: open("raycast://extensions/raycast/navigation/search-menu-items"),
     },
   }),
 ];
