@@ -137,6 +137,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
                   },
@@ -256,6 +261,11 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_c",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -595,6 +605,11 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_c",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -1034,6 +1049,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
                   },
@@ -1324,6 +1344,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
                   },
@@ -1429,9 +1454,10 @@
               {
                 "to": [
                   {
-                    "key_code": "f",
+                    "key_code": "spacebar",
                     "modifiers": [
-                      "right_control"
+                      "left_shift",
+                      "left_command"
                     ]
                   }
                 ],
@@ -1457,7 +1483,8 @@
                   {
                     "key_code": "j",
                     "modifiers": [
-                      "right_control"
+                      "left_shift",
+                      "left_command"
                     ]
                   }
                 ],
@@ -1616,6 +1643,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_r",
                     "value": 0
                   },
@@ -1698,6 +1730,158 @@
             ]
           },
           {
+            "description": "Hyper Key sublayer \"f\"",
+            "manipulators": [
+              {
+                "description": "Toggle Hyper sublayer f",
+                "type": "basic",
+                "from": {
+                  "key_code": "f",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_f",
+                      "value": 0
+                    }
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_f",
+                      "value": 1
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_b",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_o",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_w",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_v",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_c",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open /Applications"
+                  }
+                ],
+                "description": "Open /Applications",
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open ~/Downloads"
+                  }
+                ],
+                "description": "Open ~/Downloads",
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open ~"
+                  }
+                ],
+                "description": "Open ~",
+                "type": "basic",
+                "from": {
+                  "key_code": "r",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Hyper Key sublayer \"r\"",
             "manipulators": [
               {
@@ -1761,6 +1945,11 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_c",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
@@ -1852,6 +2041,30 @@
                 "type": "basic",
                 "from": {
                   "key_code": "m",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open raycast://extensions/raycast/screenshots/search-screenshots"
+                  }
+                ],
+                "description": "Open raycast://extensions/raycast/screenshots/search-screenshots",
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
                   "modifiers": {
                     "optional": [
                       "any"

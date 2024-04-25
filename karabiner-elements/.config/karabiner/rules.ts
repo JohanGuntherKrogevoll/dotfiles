@@ -226,11 +226,13 @@ const rules: KarabinerRules[] = [
       },
       // Magicmove via homerow.app
       m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
+        to: [
+          { key_code: "spacebar", modifiers: ["left_shift", "left_command"] },
+        ],
       },
       // Scroll mode via homerow.app
       s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
+        to: [{ key_code: "j", modifiers: ["left_shift", "left_command"] }],
       },
       d: {
         to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
@@ -256,6 +258,13 @@ const rules: KarabinerRules[] = [
       },
     },
 
+    // f = "Finder"
+    f: {
+      a: open("/Applications"),
+      d: open("~/Downloads"),
+      r: open("~"),
+    },
+
     // r = "Raycast"
     r: {
       e: open(
@@ -266,6 +275,7 @@ const rules: KarabinerRules[] = [
         "raycast://extensions/raycast/clipboard-history/clipboard-history"
       ),
       m: open("raycast://extensions/raycast/navigation/search-menu-items"),
+      s: open("raycast://extensions/raycast/screenshots/search-screenshots"),
     },
   }),
 ];
