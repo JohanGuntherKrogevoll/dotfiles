@@ -1,7 +1,8 @@
-This is a collection of dotfiles for my personal use.
-It is managed using [GNU Stow](https://www.gnu.org/software/stow/). [This is a simple guide](https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/) on how to get started using Stow.
+This is a collection of some of my dotfiles.
 
-To be able to apply the config files you need to install Gnu Stow: `brew install stow`
+It is managed using [GNU Stow](https://www.gnu.org/software/stow/).
+
+[This is the simple guide](https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/) i used on how to get started using Stow.
 
 Currently this repo contains config files that expects the following to be installed:
 
