@@ -7,6 +7,7 @@ It is managed using [GNU Stow](https://www.gnu.org/software/stow/).
 Currently this repo contains config files that expects the following to be installed:
 
 - [devenv and nix](https://devenv.sh/getting-started/)
+- Optional: [direnv](https://devenv.sh/automatic-shell-activation/) for automaticly loading nix. `brew install direnv`
 - [Warp](https://warp.dev/): `brew install --cask warp`
 - [LunarVim](https://github.com/LunarVim/LunarVim)
 - [LazyVim](https://github.com/LazyVim/LazyVim)
