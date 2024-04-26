@@ -2,8 +2,6 @@
 
 {
   packages = with pkgs; [
-          bash-completion
-          bashInteractive
           bat
           broot
           btop
@@ -30,7 +28,6 @@
           lazydocker
           lazygit
           less
-          lolcat
           lsd
           lsof
           nodePackages.nodemon
