@@ -267,6 +267,7 @@ const rules: KarabinerRules[] = [
 
     // r = "Raycast"
     r: {
+      b: open("raycast://extensions/jomifepe/bitwarden/search"),
       e: open(
         "raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"
       ),
@@ -276,6 +277,8 @@ const rules: KarabinerRules[] = [
       ),
       m: open("raycast://extensions/raycast/navigation/search-menu-items"),
       s: open("raycast://extensions/raycast/screenshots/search-screenshots"),
+      t: open("raycast://extensions/gebeto/translate/quick-translate"),
+      w: open("raycast://extensions/raycast/github/workflow-runs"),
     },
   }),
 ];
