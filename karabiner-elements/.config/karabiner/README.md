@@ -1,4 +1,6 @@
-# @mxstbr's Karabiner Elements configuration
+# Karabiner Elements configuration
+
+**This configuration is cloned from [mxstbr/karabiner](https://github.com/mxstbr/karabiner) and then modified. The following is the original README at the time of cloning:**
 
 If you like TypeScript and want your Karabiner configuration maintainable & type-safe, you probably want to use the custom configuration DSL / generator I created in `rules.ts` and `utils.ts`!
 
