@@ -58,10 +58,11 @@ const rules: KarabinerRules[] = [
       f: app("Finder"),
       i: app("Insomnia"),
       n: app("Obsidian"),
+      m: app("Mail"),
       s: app("Slack"),
       p: app("Spotify"),
       v: app("Visual Studio Code"),
-      w: app("Warp"),
+      t: app("Kitty"),
     },
 
     // w = "Window" via rectangle.app
@@ -223,19 +224,6 @@ const rules: KarabinerRules[] = [
       },
       l: {
         to: [{ key_code: "right_arrow" }],
-      },
-      // Magicmove via homerow.app
-      m: {
-        to: [
-          { key_code: "spacebar", modifiers: ["left_shift", "left_command"] },
-        ],
-      },
-      // Scroll mode via homerow.app
-      s: {
-        to: [{ key_code: "j", modifiers: ["left_shift", "left_command"] }],
-      },
-      d: {
-        to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
       },
       u: {
         to: [{ key_code: "page_down" }],
