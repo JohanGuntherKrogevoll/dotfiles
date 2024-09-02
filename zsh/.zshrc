@@ -11,12 +11,12 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm endexport PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# pnpm end
 
-# The next line updates PATH for the Google Cloud SDK.
+# ↓ Updates PATH for the Google Cloud SDK.
 if [ -f '/Users/johanguntherkrogevoll/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/johanguntherkrogevoll/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
+#  ↓ Enables shell command completion for gcloud.
 if [ -f '/Users/johanguntherkrogevoll/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/johanguntherkrogevoll/google-cloud-sdk/completion.zsh.inc'; fi
 
 
@@ -36,11 +36,5 @@ eval "$(starship init zsh)"
  fi
  export NIXPKGS_ALLOW_UNFREE=1
 
-## Team Hope Setup - Start
-export hopeGitRoot="$HOME/dev/strawberry/hope"
-source "$HOME/dev/strawberry/hope/.dev/shells/.zshrc"
-## Team Hope Setup - End
-
 source "/Users/johanguntherkrogevoll/aliases.sh"
-
 
