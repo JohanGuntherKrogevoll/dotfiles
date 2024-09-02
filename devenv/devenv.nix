@@ -55,6 +55,7 @@
           xsel
           yq
           yarn
+          yazi
           zellij
           zip
           zsh
