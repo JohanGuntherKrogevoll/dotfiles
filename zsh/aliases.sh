@@ -43,3 +43,5 @@ alias ld="lazydocker"
 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
+# Edit Config
+alias ec="zellij --layout edit-config attach --create edit-config"
