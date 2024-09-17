@@ -3,3 +3,5 @@
 	name = Johan Günther Krogevoll
 [pull]
 	rebase = false
+[init]
+	defaultBranch = main
