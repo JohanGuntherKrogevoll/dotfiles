@@ -7,19 +7,25 @@ brew update
 brew install node
 Brew install gh
 brew install azure-cli
-brew install --cask mouse-fix
-brew install --cask slack 
+brew install --cask slack
+brew install --cask notion
 brew install --cask bitwarden
 brew install --cask signal
-brew install --cask visual-studio
 brew install --cask docker
 brew install --cask visual-studio-code
 brew install --cask discord
 brew install --cask spotify
 brew install --cask insomnia
-brew install --cask warp
+brew install --cask postman
 brew install --cask karabiner-elements
+brew install --cask kap
+brew install --cask discord
+brew install --cask raycast
+brew install --cask kitty
+brew install --cask steam
 brew install --cask rectangle
+brew install --cask mac-mouse-fix
+
 brew tap homebrew/cask-drivers
 brew install steelseries-exactmouse-tool
 
