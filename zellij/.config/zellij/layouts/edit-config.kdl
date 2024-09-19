@@ -10,7 +10,7 @@ layout {
       plugin location="zellij:status-bar"
     }
   }
-  tab name="lvim" cwd="~/.config" {
+  tab name="lvim" cwd="~/dotfiles" {
     pane command="bash" {
         args "-c" "lvim -c 'lua require(\"persistence\").load()' ."
       }
