@@ -13,6 +13,7 @@
           docker-buildx
           du-dust
           entr
+          fd
           fzf
           gettext
           gh
@@ -61,9 +62,6 @@
           zsh
 ];
 
-  scripts.hello.exec = "Devenv is ready!";
-
-
   dotenv.enable = true;
 
   # https://devenv.sh/languages/
@@ -72,14 +70,8 @@
   languages.typescript.enable = true;
   languages.terraform.enable = true;
 
-  # https://devenv.sh/services/
-  # services.postgres.enable = true;
-
   # https://devenv.sh/pre-commit-hooks/
   # pre-commit.hooks.shellcheck.enable = true;
-
-  # https://devenv.sh/processes/
-  # processes.ping.exec = "ping example.com";
 
   # See full reference at https://devenv.sh/reference/options/
 }
