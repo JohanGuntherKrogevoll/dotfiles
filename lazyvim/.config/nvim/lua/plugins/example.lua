@@ -10,7 +10,6 @@ if true then
           "shellcheck",
           "shfmt",
           "flake8",
-          "vue-language-server@1.8.27",
           "biome"
         },
       },
