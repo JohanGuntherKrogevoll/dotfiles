@@ -1,9 +1,8 @@
 import fs from "fs";
-import { KarabinerRules } from "./types";
+import { KarabinerRules, Manipulator } from "./types";
 import { createHyperSubLayers, app, open, rectangle } from "./utils";
 
 const rules: KarabinerRules[] = [
-  // Define the Hyper key itself
   {
     description: "Hyper Key (⌃⌥⇧⌘)",
     manipulators: [
@@ -292,6 +291,17 @@ const rules: KarabinerRules[] = [
   }),
 ];
 
+const simpleModifications: Omit<Manipulator, "type">[] = [
+  {
+    from: { key_code: "non_us_backslash" },
+    to: [{ key_code: "grave_accent_and_tilde" }],
+  },
+  {
+    from: { key_code: "grave_accent_and_tilde" },
+    to: [{ key_code: "non_us_backslash" }],
+  },
+];
+
 fs.writeFileSync(
   "karabiner.json",
   JSON.stringify(
@@ -302,9 +312,11 @@ fs.writeFileSync(
       profiles: [
         {
           name: "Default",
+          virtual_hid_keyboard: { keyboard_type_v2: "iso" },
           complex_modifications: {
             rules,
           },
+          simple_modifications: simpleModifications,
         },
       ],
     },
