@@ -5,9 +5,18 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
+    homebrew-core = {
+      url = "github:homebrew/homebrew-core";
+      flake = false;
+    };
+    homebrew-cask = {
+      url = "github:homebrew/homebrew-cask";
+      flake = false;
+    };   
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, homebrew-core, homebrew-cask }:
   let
     configuration = { pkgs, ... }: {
 
@@ -21,8 +30,9 @@
           broot
           btop
           bun
-          cargo
           curl
+          devenv
+          obsidian
           direnv
           docker
           docker-buildx
@@ -59,7 +69,9 @@
           rustup
           sd
           shellcheck
+          slack
           starship
+          stow
           terraform
           terraform-docs
           tfsec
@@ -76,6 +88,48 @@
           zip
           zsh
         ];
+
+      homebrew = {
+          enable = true; 
+          casks = [
+            # Keeping stuff commented as its conflictiong with already installed apps. Uncomment on fresh install.
+            # "arc"
+            # "notion"
+            "bitwarden"
+            # "signal"
+            # "docker"
+            # "visual-studio-code"
+            # "discord"
+            # shottr
+            "spotify"
+            # "insomnia"
+            # "postman"
+            # "homerow"
+            "karabiner-elements"
+            "bruno"
+            # "kap"
+            # "discord"
+            # "raycast"
+            # "kitty"
+            # "steam"
+            # "rectangle"
+            # "mac-mouse-fix"
+          ];
+          onActivation.cleanup = "zap";
+        };
+
+      system.defaults = {
+        dock.autohide = true;
+        dock.persistent-apps = [
+        ];
+        finder.FXPreferredViewStyle = "clmv";
+        loginwindow.GuestEnabled  = false;
+        NSGlobalDomain.AppleICUForce24HourTime = true;
+        NSGlobalDomain.AppleInterfaceStyle = "Dark";
+        NSGlobalDomain.KeyRepeat = 2;
+        NSGlobalDomain.InitialKeyRepeat = 15;
+      };
+
 
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
@@ -103,7 +157,21 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."mac" = nix-darwin.lib.darwinSystem {
-      modules = [ configuration ];
+      modules = [ 
+        configuration 
+        nix-homebrew.darwinModules.nix-homebrew
+          {
+            nix-homebrew = {
+              enable = true;
+              enableRosetta = true;
+              user = "johanguntherkrogevoll";
+              taps = {
+                "homebrew/homebrew-core" = homebrew-core;
+                "homebrew/homebrew-cask" = homebrew-cask;
+              };
+            };
+          }
+    ];
     };
 
     # Expose the package set, including overlays, for convenience.
