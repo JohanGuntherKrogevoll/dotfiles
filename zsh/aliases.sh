@@ -28,6 +28,7 @@ alias da="direnv allow"
 alias dc="docker compose"
 alias doclean="docker image prune -a"
 alias tf="terraform"
+alias ndr="darwin-rebuild switch --flake ~/dotfiles/nix#mac"
 
 # CLI Power tools
 # Article: https://deepu.tech/rust-terminal-tools-linux-mac-windows-fish-zsh/
@@ -43,6 +44,5 @@ alias ld="lazydocker"
 
 alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'
 
-# Edit Config
 alias ec="zellij --layout edit-config attach --create edit-config"
 alias ne="zellij --layout nordicepod attach --create nordicepod"

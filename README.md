@@ -1,17 +1,45 @@
-This is a collection of some of my dotfiles.
+# Dotfiles
 
-It is managed using [GNU Stow](https://www.gnu.org/software/stow/).
+This is a collection of some of my dotfiles.
+Im very happy if you want to take it for a spin
+or have any ideas on how it could be improved 😊
+
+## Setting up nix
+
+Im using Nix for managing all my packages and applications. This was heavily inspired by [this](https://www.youtube.com/watch?v=Z8BL8mdzWHI&t=1491s) video.
+
+### Install Nix
+
+You can get started by installing [Nix package manager](https://nixos.org/):
+
+```bash
+sh <(curl -L https://nixos.org/nix/install)
+```
+
+### Install Nix Darwin
+
+Then install [nix-darwin](https://github.com/LnL7/nix-darwin):
+
+```bash
+nix run nix-darwin --extra-experimental-features "nix-command flakes" -- switch --flake ~/dotfiles/nix#mac
+```
+
+### Edit and rebuild
+
+To rebuild the Nix configuration after editing it. Run:
+
+```
+darwin-rebuild switch --flake ~/dotfiles/nix#mac
+```
+
+or (after using Stow to apply the aliases.sh):
+
+```bash
+ndr
+```
+
+## GNU Stow
+
+The dotfiles is managed using [GNU Stow](https://www.gnu.org/software/stow/) which is installed in the steps above.
 
 [This is the simple guide](https://dr563105.github.io/blog/manage-dotfiles-with-gnu-stow/) i used on how to get started using Stow.
-
-Currently this repo contains config files that expects the following to be installed:
-
-- [devenv and nix](https://devenv.sh/getting-started/)
-- Optional: [direnv](https://devenv.sh/automatic-shell-activation/) for automaticly loading nix. `brew install direnv`
-- [Warp](https://warp.dev/): `brew install --cask warp`
-- [LunarVim](https://github.com/LunarVim/LunarVim)
-- [LazyVim](https://github.com/LazyVim/LazyVim)
-- [Karabiner Elements](https://karabiner-elements.pqrs.org/): `brew install --cask karabiner-elements` Which has keybindings using:
-  - [Raycast](https://raycast.com/): `brew install --cask raycast`
-  - [Rectangle](https://rectangleapp.com/): `brew install --cask rectangle`
-  - [Homerow](https://www.homerow.app/)
