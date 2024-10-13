@@ -1,6 +1,11 @@
 import fs from "fs";
 import { KarabinerRules, Manipulator } from "./types";
-import { createHyperSubLayers, app, open, rectangle } from "./utils";
+import {
+  createSubLayers as createSubLayers,
+  app,
+  open,
+  rectangle,
+} from "./utils";
 
 const rules: KarabinerRules[] = [
   {
@@ -39,7 +44,84 @@ const rules: KarabinerRules[] = [
       },
     ],
   },
-  ...createHyperSubLayers({
+  {
+    description: "Meh Key (⌃⌥⇧)",
+    manipulators: [
+      {
+        description: "ø -> Meh Key",
+        from: {
+          key_code: "semicolon",
+          modifiers: {
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            set_variable: {
+              value: 1,
+              name: "meh",
+            },
+          },
+        ],
+        to_after_key_up: [
+          {
+            set_variable: {
+              name: "meh",
+              value: 0,
+            },
+          },
+        ],
+        to_if_alone: [
+          {
+            key_code: "semicolon",
+          },
+        ],
+        type: "basic",
+      },
+    ],
+  },
+  ...createSubLayers("meh", {
+    h: {
+      to: [{ key_code: "left_arrow" }],
+    },
+    j: {
+      to: [{ key_code: "down_arrow" }],
+    },
+    k: {
+      to: [{ key_code: "up_arrow" }],
+    },
+    l: {
+      to: [{ key_code: "right_arrow" }],
+    },
+    w: {
+      to: [{ key_code: "right_arrow", modifiers: ["left_option"] }],
+    },
+    e: {
+      to: [{ key_code: "right_arrow", modifiers: ["left_option"] }],
+    },
+    b: {
+      to: [{ key_code: "left_arrow", modifiers: ["left_option"] }],
+    },
+    g: {
+      to: [{ key_code: "up_arrow", modifiers: ["left_command"] }],
+    },
+    f: {
+      to: [{ key_code: "down_arrow", modifiers: ["left_command"] }],
+    },
+    4: {
+      to: [{ key_code: "right_arrow", modifiers: ["left_command"] }],
+    },
+    0: {
+      to: [{ key_code: "left_arrow", modifiers: ["left_command"] }],
+    },
+    u: {
+      to: [{ key_code: "page_down" }],
+    },
+    i: {
+      to: [{ key_code: "page_up" }],
+    },
+  }),
+  ...createSubLayers("hyper", {
     spacebar: app("Screenshot"),
     // b = "B"rowse
     b: {
@@ -66,15 +148,6 @@ const rules: KarabinerRules[] = [
 
     // w = "Window" via rectangle.app
     w: {
-      semicolon: {
-        description: "Window: Hide",
-        to: [
-          {
-            key_code: "h",
-            modifiers: ["right_command"],
-          },
-        ],
-      },
       y: rectangle("previous-display"),
       o: rectangle("next-display"),
       k: rectangle("top-half"),
@@ -191,65 +264,12 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      semicolon: {
+      f: {
         to: [
           {
             key_code: "fastforward",
           },
         ],
-      },
-      e: {
-        to: [
-          {
-            // Emoji picker
-            key_code: "spacebar",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
-    },
-
-    // semicolon is the keycode for the "ø" key
-    // this layes enables vim-like navigation
-    semicolon: {
-      h: {
-        to: [{ key_code: "left_arrow" }],
-      },
-      j: {
-        to: [{ key_code: "down_arrow" }],
-      },
-      k: {
-        to: [{ key_code: "up_arrow" }],
-      },
-      l: {
-        to: [{ key_code: "right_arrow" }],
-      },
-      w: {
-        to: [{ key_code: "right_arrow", modifiers: ["left_option"] }],
-      },
-      e: {
-        to: [{ key_code: "right_arrow", modifiers: ["left_option"] }],
-      },
-      b: {
-        to: [{ key_code: "left_arrow", modifiers: ["left_option"] }],
-      },
-      g: {
-        to: [{ key_code: "up_arrow", modifiers: ["left_command"] }],
-      },
-      f: {
-        to: [{ key_code: "down_arrow", modifiers: ["left_command"] }],
-      },
-      4: {
-        to: [{ key_code: "right_arrow", modifiers: ["left_command"] }],
-      },
-      0: {
-        to: [{ key_code: "left_arrow", modifiers: ["left_command"] }],
-      },
-      u: {
-        to: [{ key_code: "page_down" }],
-      },
-      i: {
-        to: [{ key_code: "page_up" }],
       },
     },
 

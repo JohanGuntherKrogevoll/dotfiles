@@ -18,17 +18,21 @@ type HyperKeySublayer = {
  * e.g. Hyper + O ("Open") is the "open applications" layer, I can press
  * e.g. Hyper + O + G ("Google Chrome") to open Chrome
  */
-export function createHyperSubLayer(
+export function createSubLayer(
+  variable: string,
   sublayer_key: KeyCode,
   commands: HyperKeySublayer,
   allSubLayerVariables: string[]
 ): Manipulator[] {
-  const subLayerVariableName = generateSubLayerVariableName(sublayer_key);
+  const subLayerVariableName = generateSubLayerVariableName(
+    variable,
+    sublayer_key
+  );
 
   return [
     // When Hyper + sublayer_key is pressed, set the variable to 1; on key_up, set it to 0 again
     {
-      description: `Toggle Hyper sublayer ${sublayer_key}`,
+      description: `Toggle ${variable} sublayer ${sublayer_key}`,
       type: "basic",
       from: {
         key_code: sublayer_key,
@@ -69,7 +73,7 @@ export function createHyperSubLayer(
           })),
         {
           type: "variable_if",
-          name: "hyper",
+          name: variable,
           value: 1,
         },
       ],
@@ -103,17 +107,20 @@ export function createHyperSubLayer(
  * have all the hyper variable names in order to filter them and make sure only one
  * activates at a time
  */
-export function createHyperSubLayers(subLayers: {
-  [key_code in KeyCode]?: HyperKeySublayer | LayerCommand;
-}): KarabinerRules[] {
+export function createSubLayers(
+  variable: string,
+  subLayers: {
+    [key_code in KeyCode]?: HyperKeySublayer | LayerCommand;
+  }
+): KarabinerRules[] {
   const allSubLayerVariables = (
     Object.keys(subLayers) as (keyof typeof subLayers)[]
-  ).map((sublayer_key) => generateSubLayerVariableName(sublayer_key));
+  ).map((sublayer_key) => generateSubLayerVariableName(variable, sublayer_key));
 
   return Object.entries(subLayers).map(([key, value]) =>
     "to" in value
       ? {
-          description: `Hyper Key + ${key}`,
+          description: `${variable} Key + ${key}`,
           manipulators: [
             {
               ...value,
@@ -127,7 +134,7 @@ export function createHyperSubLayers(subLayers: {
               conditions: [
                 {
                   type: "variable_if",
-                  name: "hyper",
+                  name: variable,
                   value: 1,
                 },
               ],
@@ -135,8 +142,9 @@ export function createHyperSubLayers(subLayers: {
           ],
         }
       : {
-          description: `Hyper Key sublayer "${key}"`,
-          manipulators: createHyperSubLayer(
+          description: `${variable} Key sublayer "${key}"`,
+          manipulators: createSubLayer(
+            variable,
             key as KeyCode,
             value,
             allSubLayerVariables
@@ -145,8 +153,8 @@ export function createHyperSubLayers(subLayers: {
   );
 }
 
-function generateSubLayerVariableName(key: KeyCode) {
-  return `hyper_sublayer_${key}`;
+function generateSubLayerVariableName(variable: string, key: KeyCode) {
+  return `${variable}_sublayer_${key}`;
 }
 
 /**
