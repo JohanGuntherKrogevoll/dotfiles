@@ -15,8 +15,10 @@ layout {
       pane command="bash" focus=true {
           args "-c" "nvim ."
         }
-      pane size="20%" {
-      }
+      pane size="20%" command="pnpm"{
+          args "run" "dev"
+        } 
+      
     }
   }  
 }
