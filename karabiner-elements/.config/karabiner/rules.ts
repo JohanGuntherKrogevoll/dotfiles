@@ -5,6 +5,7 @@ import {
   app,
   open,
   rectangle,
+  shottr,
 } from "./utils";
 
 const rules: KarabinerRules[] = [
@@ -105,7 +106,7 @@ const rules: KarabinerRules[] = [
     g: {
       to: [{ key_code: "up_arrow", modifiers: ["left_command"] }],
     },
-    f: {
+    v: {
       to: [{ key_code: "down_arrow", modifiers: ["left_command"] }],
     },
     4: {
@@ -119,6 +120,13 @@ const rules: KarabinerRules[] = [
     },
     i: {
       to: [{ key_code: "page_up" }],
+    },
+    spacebar: {
+      a: shottr("area", ["save", "edit"]),
+      w: shottr("window", ["save", "edit"]),
+      f: shottr("fullscreen", ["save", "edit"]),
+      s: shottr("scrolling", ["save", "edit"]),
+      r: shottr("repeat", ["save", "edit"]),
     },
   }),
   ...createSubLayers("hyper", {

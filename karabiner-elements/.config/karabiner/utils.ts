@@ -185,6 +185,22 @@ export function rectangle(name: string): LayerCommand {
   };
 }
 
+export function shottr(
+  name: "area" | "fullscreen" | "repeat" | "window" | "scrolling",
+  then: ("save" | "edit" | "thumbnail" | "copy" | "pin")[] = []
+): LayerCommand {
+  return {
+    to: [
+      {
+        shell_command: `open -g shottr://grab/${name}${
+          then.length > 0 ? `?then=${then.join(",")}` : ""
+        }`,
+      },
+    ],
+    description: `Shottr: ${name}`,
+  };
+}
+
 /**
  * Shortcut for "Open an app" command (of which there are a bunch)
  */
