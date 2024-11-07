@@ -283,13 +283,35 @@ const rules: KarabinerRules[] = [
 
     // c = Musi*c* which isn't "m" because we want it to be on the left hand
     c: {
+      o: app("Spotify"),
+      k: {
+        to: [
+          {
+            key_code: "volume_increment",
+          },
+        ],
+      },
+      j: {
+        to: [
+          {
+            key_code: "volume_decrement",
+          },
+        ],
+      },
+      m: {
+        to: [
+          {
+            key_code: "mute",
+          },
+        ],
+      },
       p: {
         to: [{ key_code: "play_or_pause" }],
       },
-      n: {
+      l: {
         to: [{ key_code: "fastforward" }],
       },
-      b: {
+      h: {
         to: [{ key_code: "rewind" }],
       },
     },
