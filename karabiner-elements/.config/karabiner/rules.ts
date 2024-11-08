@@ -126,6 +126,7 @@ const rules: KarabinerRules[] = [
       w: shottr("window", ["save", "edit"]),
       f: shottr("fullscreen", ["save", "edit"]),
       s: shottr("scrolling", ["save", "edit"]),
+      o: shottr("scrolling/reverse", ["save", "edit"]),
       r: shottr("repeat", ["save", "edit"]),
     },
   }),

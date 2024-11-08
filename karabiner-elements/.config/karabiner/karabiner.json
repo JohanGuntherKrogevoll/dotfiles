@@ -673,6 +673,30 @@
               {
                 "to": [
                   {
+                    "shell_command": "open -g shottr://grab/scrolling/reverse?then=save,edit"
+                  }
+                ],
+                "description": "Shottr: scrolling/reverse",
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "meh_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
                     "shell_command": "open -g shottr://grab/repeat?then=save,edit"
                   }
                 ],

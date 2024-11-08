@@ -186,7 +186,13 @@ export function rectangle(name: string): LayerCommand {
 }
 
 export function shottr(
-  name: "area" | "fullscreen" | "repeat" | "window" | "scrolling",
+  name:
+    | "area"
+    | "fullscreen"
+    | "repeat"
+    | "window"
+    | "scrolling"
+    | "scrolling/reverse",
   then: ("save" | "edit" | "thumbnail" | "copy" | "pin")[] = []
 ): LayerCommand {
   return {
