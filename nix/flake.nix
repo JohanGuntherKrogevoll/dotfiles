@@ -30,6 +30,7 @@
           broot
           btop
           bun
+          carapace
           curl
           devenv
           obsidian
@@ -61,6 +62,7 @@
           nodePackages.ts-node
           nodePackages.firebase-tools
           nodejs_20
+          nushell
           openssh
           procs
           ripgrep
