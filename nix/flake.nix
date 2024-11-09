@@ -100,6 +100,7 @@
             "bitwarden"
             # "signal"
             # "docker"
+            "firefox"
             # "visual-studio-code"
             # "discord"
             # shottr

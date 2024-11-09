@@ -132,27 +132,35 @@ const rules: KarabinerRules[] = [
   }),
   ...createSubLayers("hyper", {
     spacebar: app("Screenshot"),
-    // b = "B"rowse
+    // Browse
     b: {
+      // Weather
       w: open(
         "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/1-46892/Norge/Vestfold/T%C3%B8nsberg/Eik"
       ),
       g: open("https://github.com"),
+      l: open("https://localhost:3000"),
     },
     // o = "Open" applications
     o: {
-      a: app("Arc"),
-      b: app("Bitwarden"),
+      // Api client
+      a: app("Bruno"),
+      // Browser
+      b: app("Firefox"),
       c: app("Calendar"),
       d: app("Discord"),
       f: app("Finder"),
-      i: app("Insomnia"),
-      n: app("Obsidian"),
       m: app("Mail"),
-      s: app("Slack"),
+      // Notes
+      n: app("Obsidian"),
+      // sPotify
       p: app("Spotify"),
-      v: app("Visual Studio Code"),
+      s: app("Slack"),
+      // Terminal
       t: app("Kitty"),
+      v: app("Visual Studio Code"),
+      // bitWarden
+      w: app("Bitwarden"),
     },
 
     // w = "Window" via rectangle.app

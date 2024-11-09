@@ -869,6 +869,30 @@
                     "value": 1
                   }
                 ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open https://localhost:3000"
+                  }
+                ],
+                "description": "Open https://localhost:3000",
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_b",
+                    "value": 1
+                  }
+                ]
               }
             ]
           },
@@ -948,10 +972,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Arc.app'"
+                    "shell_command": "open -a 'Bruno.app'"
                   }
                 ],
-                "description": "Open -a 'Arc.app'",
+                "description": "Open -a 'Bruno.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "a",
@@ -972,10 +996,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Bitwarden.app'"
+                    "shell_command": "open -a 'Firefox.app'"
                   }
                 ],
-                "description": "Open -a 'Bitwarden.app'",
+                "description": "Open -a 'Firefox.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "b",
@@ -1068,13 +1092,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Insomnia.app'"
+                    "shell_command": "open -a 'Mail.app'"
                   }
                 ],
-                "description": "Open -a 'Insomnia.app'",
+                "description": "Open -a 'Mail.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "i",
+                  "key_code": "m",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1116,13 +1140,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Mail.app'"
+                    "shell_command": "open -a 'Spotify.app'"
                   }
                 ],
-                "description": "Open -a 'Mail.app'",
+                "description": "Open -a 'Spotify.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "m",
+                  "key_code": "p",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1164,13 +1188,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Spotify.app'"
+                    "shell_command": "open -a 'Kitty.app'"
                   }
                 ],
-                "description": "Open -a 'Spotify.app'",
+                "description": "Open -a 'Kitty.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "p",
+                  "key_code": "t",
                   "modifiers": {
                     "optional": [
                       "any"
@@ -1212,13 +1236,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Kitty.app'"
+                    "shell_command": "open -a 'Bitwarden.app'"
                   }
                 ],
-                "description": "Open -a 'Kitty.app'",
+                "description": "Open -a 'Bitwarden.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "t",
+                  "key_code": "w",
                   "modifiers": {
                     "optional": [
                       "any"
