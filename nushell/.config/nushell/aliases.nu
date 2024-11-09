@@ -11,8 +11,6 @@ alias gbr = git branch
 alias l = ls -f
 alias la = ls -a
 alias ll = ls -alf
-alias ls = lsd --header --color=always --group-directories-first
-alias lt = ls --tree
 alias .. = cd ..
 alias ... = cd ../..
 alias .... = cd ../../..
