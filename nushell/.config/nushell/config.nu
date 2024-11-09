@@ -903,6 +903,7 @@ $env.config = {
 }
 
 source ./aliases.nu
+source ./themes/tokyo-night-storm.nu
 source ~/.cache/carapace/init.nu
 use ~/.cache/starship/init.nu
 
