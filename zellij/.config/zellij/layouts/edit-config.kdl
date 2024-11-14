@@ -24,9 +24,12 @@ layout {
     }
   }
   tab name="lvim" cwd="~/dotfiles" {
-    pane command="bash" {
-      args "-c" "nvim ."
-    }
-  }  
+    pane stacked=true{
+      pane command="bash" {
+        args "-c" "nvim ."
+      }
+      pane
+    }  
+  }
 }
 
