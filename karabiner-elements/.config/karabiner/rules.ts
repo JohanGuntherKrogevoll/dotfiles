@@ -139,7 +139,7 @@ const rules: KarabinerRules[] = [
         "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/1-46892/Norge/Vestfold/T%C3%B8nsberg/Eik"
       ),
       g: open("https://github.com"),
-      l: open("https://localhost:3000"),
+      l: open("http://localhost:3000"),
     },
     // o = "Open" applications
     o: {

@@ -873,10 +873,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open https://localhost:3000"
+                    "shell_command": "open http://localhost:3000"
                   }
                 ],
-                "description": "Open https://localhost:3000",
+                "description": "Open http://localhost:3000",
                 "type": "basic",
                 "from": {
                   "key_code": "l",
