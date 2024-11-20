@@ -49,6 +49,7 @@
           gnupg
           gnused
           google-cloud-sdk
+          iina
           jq
           jqp
           just
