@@ -118,6 +118,7 @@
             # "steam"
             # "rectangle"
             # "mac-mouse-fix"
+            "microsoft-teams"
           ];
           onActivation.cleanup = "zap";
         };
