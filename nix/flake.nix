@@ -50,6 +50,7 @@
           gnused
           google-cloud-sdk
           iina
+          jdk
           jq
           jqp
           just
@@ -61,7 +62,7 @@
           nodePackages.nodemon
           nodePackages.pnpm
           nodePackages.ts-node
-          nodePackages.firebase-tools
+         # nodePackages.firebase-tools
           nodejs_20
           nushell
           openssh
@@ -99,8 +100,9 @@
             # "arc"
             # "notion"
             "bitwarden"
+            "brave-browser"
             # "signal"
-            # "docker"
+            "docker"
             "firefox"
             # "visual-studio-code"
             # "discord"
@@ -110,7 +112,9 @@
             # "postman"
             # "homerow"
             "karabiner-elements"
+            "keymapp"
             "bruno"
+            "ghostty"
             # "kap"
             # "discord"
             # "raycast"
@@ -119,6 +123,7 @@
             # "rectangle"
             # "mac-mouse-fix"
             "microsoft-teams"
+            "openoffice"
           ];
           onActivation.cleanup = "zap";
         };
