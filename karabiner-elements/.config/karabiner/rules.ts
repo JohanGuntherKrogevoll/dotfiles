@@ -45,83 +45,9 @@ const rules: KarabinerRules[] = [
       },
     ],
   },
-  {
-    description: "Meh Key (⌃⌥⇧)",
-    manipulators: [
-      {
-        description: "ø -> Meh Key",
-        from: {
-          key_code: "semicolon",
-          modifiers: {
-            optional: ["any"],
-          },
-        },
-        to: [
-          {
-            set_variable: {
-              value: 1,
-              name: "meh",
-            },
-          },
-        ],
-        to_after_key_up: [
-          {
-            set_variable: {
-              name: "meh",
-              value: 0,
-            },
-          },
-        ],
-        to_if_alone: [
-          {
-            key_code: "semicolon",
-          },
-        ],
-        type: "basic",
-      },
-    ],
-  },
-  ...createSubLayers("meh", {
-    h: {
-      to: [{ key_code: "left_arrow" }],
-    },
-    j: {
-      to: [{ key_code: "down_arrow" }],
-    },
-    k: {
-      to: [{ key_code: "up_arrow" }],
-    },
-    l: {
-      to: [{ key_code: "right_arrow" }],
-    },
-    w: {
-      to: [{ key_code: "right_arrow", modifiers: ["left_option"] }],
-    },
-    e: {
-      to: [{ key_code: "right_arrow", modifiers: ["left_option"] }],
-    },
-    b: {
-      to: [{ key_code: "left_arrow", modifiers: ["left_option"] }],
-    },
-    g: {
-      to: [{ key_code: "up_arrow", modifiers: ["left_command"] }],
-    },
-    v: {
-      to: [{ key_code: "down_arrow", modifiers: ["left_command"] }],
-    },
-    4: {
-      to: [{ key_code: "right_arrow", modifiers: ["left_command"] }],
-    },
-    0: {
-      to: [{ key_code: "left_arrow", modifiers: ["left_command"] }],
-    },
-    u: {
-      to: [{ key_code: "page_down" }],
-    },
-    i: {
-      to: [{ key_code: "page_up" }],
-    },
-    spacebar: {
+  ...createSubLayers("hyper", {
+    //Shottr - p for picture
+    p: {
       a: shottr("area", ["save", "edit"]),
       w: shottr("window", ["save", "edit"]),
       f: shottr("fullscreen", ["save", "edit"]),
@@ -129,9 +55,6 @@ const rules: KarabinerRules[] = [
       o: shottr("scrolling/reverse", ["save", "edit"]),
       r: shottr("repeat", ["save", "edit"]),
     },
-  }),
-  ...createSubLayers("hyper", {
-    spacebar: app("Screenshot"),
     // Browse
     b: {
       // Weather
@@ -146,10 +69,11 @@ const rules: KarabinerRules[] = [
       // Api client
       a: app("Bruno"),
       // Browser
-      b: app("Firefox"),
+      b: app("Brave Browser"),
       c: app("Calendar"),
       d: app("Discord"),
       f: app("Finder"),
+      k: app("Keymapp"),
       m: app("Mail"),
       // Notes
       n: app("Obsidian"),
@@ -157,7 +81,7 @@ const rules: KarabinerRules[] = [
       p: app("Spotify"),
       s: app("Slack"),
       // Terminal
-      t: app("Kitty"),
+      t: app("Ghostty"),
       v: app("Visual Studio Code"),
       // bitWarden
       w: app("Bitwarden"),
