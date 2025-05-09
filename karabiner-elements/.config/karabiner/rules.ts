@@ -72,6 +72,8 @@ const rules: KarabinerRules[] = [
       b: app("Brave Browser"),
       c: app("Calendar"),
       d: app("Discord"),
+      // tEams
+      e: app("Microsoft Teams"),
       f: app("Finder"),
       k: app("Keymapp"),
       m: app("Mail"),
