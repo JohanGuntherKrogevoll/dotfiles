@@ -63,7 +63,7 @@
           nodePackages.pnpm
           nodePackages.ts-node
          # nodePackages.firebase-tools
-          nodejs_20
+          nodejs_22
           nushell
           openssh
           procs
@@ -97,7 +97,6 @@
           enable = true; 
           casks = [
             # Keeping stuff commented as its conflictiong with already installed apps. Uncomment on fresh install.
-            # "arc"
             # "notion"
             "bitwarden"
             "brave-browser"
