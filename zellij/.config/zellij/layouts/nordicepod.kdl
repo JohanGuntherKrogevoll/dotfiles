@@ -10,25 +10,36 @@ layout {
       plugin location="zellij:status-bar"
     }
   }
-  tab name="lvim" cwd="~/dev/nordicepod/nordicepod-portal" focus=true {
+  tab name="app" cwd="~/dev/nordicepod/nordicepod-portal" focus=true {
     pane stacked=true {
-      pane command="bash" focus=true {
-          args "-c" "nvim ."
-        }
-        pane
-      pane size="20%" command="pnpm"{
-          args "run" "dev"
-        } 
-      
+      pane  focus=true name="nvim" command="nvim" args="."
+      pane command="$SHELL" name="shell"
+      pane size="20%" command="bash" name="dev server" {
+        args "-c" "lsof -ti:3000 | xargs kill -9 2>/dev/null || true && firebase use dev && pnpm run dev"
+      }
     }
   }  
+  tab name="functions" cwd="~/dev/nordicepod/nordicepod-portal" {
+    pane stacked=true focus=true {
+      pane size="20%" command="bash" name="run" {
+        args "-c" "if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null ; then npm run emu:down; sleep 1; fi && firebase use dev && pnpm run emu"
+      } 
+      pane command="$SHELL" name="shell"
+      pane command="npm" name="build:watch" cwd="~/dev/nordicepod/nordicepod-portal/functions" {
+        args "run" "build:watch"
+      }
+    }
+  }
+  tab name="Notes" cwd="~/Documents/Obsidian Vault/NordicEPOD" {
+      pane name="nvim" command="nvim" args="."
+  }
   tab name="SonarQube" cwd="~/dev/nordicepod/nordicepod-portal" {
     pane stacked=true {
       pane start_suspended=true expanded=true command="bash" name="🏃‍"{
         args "-c" "direnv allow . && eval \"$(direnv export bash)\" && echo $SONAR_TOKEN && npx sonarqube-scanner -Dsonar.projectKey=NordicEpod -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=$SONAR_TOKEN"
       } 
-      pane
-      pane expanded=true command="/run/current-system/sw/bin/docker" name="📺" {
+      pane command="$SHELL" name="shell"
+      pane start_suspended=true  command="docker" name="📺" {
         args "run" "-it" "--rm" "--name" "sonarqube" "-p" "9000:9000" "-v" "sonarqube_data:/opt/sonarqube/data" "-v" "sonarqube_extensions:/opt/sonarqube/extensions" "-v" "sonarqube_logs:/opt/sonarqube/logs" "sonarqube"
       }
     }

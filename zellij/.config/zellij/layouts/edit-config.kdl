@@ -28,7 +28,7 @@ layout {
       pane command="bash" {
         args "-c" "nvim ."
       }
-      pane
+      pane command="$SHELL" name="shell"
     }  
   }
 }
