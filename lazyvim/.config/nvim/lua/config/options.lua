@@ -3,3 +3,5 @@
 -- Add any additional options here
 vim.g.maplocalleader = ","
 vim.opt.wrap = true
+vim.g.lazyvim_prettier_needs_config = true
+vim.g.snacks_animate = false

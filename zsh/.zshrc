@@ -20,21 +20,17 @@ if [ -f '/Users/johanguntherkrogevoll/google-cloud-sdk/path.zsh.inc' ]; then . '
 if [ -f '/Users/johanguntherkrogevoll/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/johanguntherkrogevoll/google-cloud-sdk/completion.zsh.inc'; fi
 
 
-export NVM_DIR="$HOME/.nvm"
-  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
 
 eval "$(direnv hook zsh)"
 
 eval "$(starship init zsh)"
 
-# Nix
- if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-   . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
- fi
  export NIXPKGS_ALLOW_UNFREE=1
 
 source "/Users/johanguntherkrogevoll/aliases.sh"
+eval "$(zoxide init zsh)"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
