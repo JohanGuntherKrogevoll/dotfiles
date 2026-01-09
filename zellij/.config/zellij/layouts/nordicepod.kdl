@@ -14,8 +14,8 @@ layout {
     pane stacked=true {
       pane  focus=true name="nvim" command="nvim" args="."
       pane command="$SHELL" name="shell"
-      pane size="20%" command="bash" name="dev server" {
-        args "-c" "lsof -ti:3000 | xargs kill -9 2>/dev/null || true && firebase use dev && pnpm run dev"
+      pane size="20%" command="zsh" name="dev server" {
+        args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && firebase use dev && pnpm run dev"
       }
     }
   }  
