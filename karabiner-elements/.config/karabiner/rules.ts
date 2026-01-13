@@ -87,6 +87,7 @@ const rules: KarabinerRules[] = [
 		a: app("Claude"),
 		b: app("Brave Browser"),
 		g: app("GitHub"),
+		v: app("Vercel"),
 		m: app("Outlook (PWA)"),
 		x: app("Tripletex"),
 		y: app("Yr"),
