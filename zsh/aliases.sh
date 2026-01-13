@@ -24,11 +24,8 @@ alias pbcopy="xsel --clipboard --input"
 alias pbpaste="xsel --clipboard --output"
 
 # Programs
-alias da="direnv allow"
 alias dc="docker compose"
 alias doclean="docker image prune -a"
-alias tf="terraform"
-alias ndr="darwin-rebuild switch --flake ~/dotfiles/nix#mac"
 
 # CLI Power tools
 # Article: https://deepu.tech/rust-terminal-tools-linux-mac-windows-fish-zsh/
