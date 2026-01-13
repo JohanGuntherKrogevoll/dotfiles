@@ -10,7 +10,7 @@ layout {
       plugin location="zellij:status-bar"
     }
   }
-  tab name="app" cwd="~/dev/nordicepod/nordicepod-portal" focus=true {
+  tab name="app" cwd="~/dev/nordic-epod/nordicepod-portal" focus=true {
     pane stacked=true {
       pane  focus=true name="nvim" command="nvim" args="."
       pane command="$SHELL" name="shell"
@@ -19,13 +19,13 @@ layout {
       }
     }
   }  
-  tab name="functions" cwd="~/dev/nordicepod/nordicepod-portal" {
+  tab name="functions" cwd="~/dev/nordic-epod/nordicepod-portal" {
     pane stacked=true focus=true {
       pane size="20%" command="bash" name="run" {
         args "-c" "if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null ; then npm run emu:down; sleep 1; fi && firebase use dev && pnpm run emu"
       } 
       pane command="$SHELL" name="shell"
-      pane command="npm" name="build:watch" cwd="~/dev/nordicepod/nordicepod-portal/functions" {
+      pane command="npm" name="build:watch" cwd="~/dev/nordic-epod/nordicepod-portal/functions" {
         args "run" "build:watch"
       }
     }
@@ -33,7 +33,7 @@ layout {
   tab name="Notes" cwd="~/Documents/Obsidian Vault/NordicEPOD" {
       pane name="nvim" command="nvim" args="."
   }
-  tab name="SonarQube" cwd="~/dev/nordicepod/nordicepod-portal" {
+  tab name="SonarQube" cwd="~/dev/nordic-epod/nordicepod-portal" {
     pane stacked=true {
       pane start_suspended=true expanded=true command="bash" name="🏃‍"{
         args "-c" "direnv allow . && eval \"$(direnv export bash)\" && echo $SONAR_TOKEN && npx sonarqube-scanner -Dsonar.projectKey=NordicEpod -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=$SONAR_TOKEN"
