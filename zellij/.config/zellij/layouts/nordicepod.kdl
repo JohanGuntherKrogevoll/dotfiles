@@ -15,17 +15,17 @@ layout {
       pane  focus=true name="nvim" command="nvim" args="."
       pane command="$SHELL" name="shell"
       pane size="20%" command="zsh" name="dev server" {
-        args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && firebase use dev && pnpm run dev"
-      }
+      args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && firebase use dev && pnpm run dev"
+    }
     }
   }  
-  tab name="functions" cwd="~/dev/nordic-epod/nordicepod-portal" {
+  tab name="functions" cwd="~/dev/nordic-epod/nordicepod-portal/functions" {
     pane stacked=true focus=true {
-      pane size="20%" command="bash" name="run" {
-        args "-c" "if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null ; then npm run emu:down; sleep 1; fi && firebase use dev && pnpm run emu"
+      pane size="20%" command="zsh" name="run" {
+        args "-c" "eval \"$(mise activate zsh)\" && if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null ; then npm run emu:down; sleep 1; fi && firebase use dev && npm run emu"
       } 
       pane command="$SHELL" name="shell"
-      pane command="npm" name="build:watch" cwd="~/dev/nordic-epod/nordicepod-portal/functions" {
+      pane command="npm" name="build:watch" {
         args "run" "build:watch"
       }
     }
