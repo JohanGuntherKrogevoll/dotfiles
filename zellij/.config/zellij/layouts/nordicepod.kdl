@@ -10,33 +10,41 @@ layout {
       plugin location="zellij:status-bar"
     }
   }
-  tab name="app" cwd="~/dev/nordic-epod/nordicepod-portal" focus=true {
+  tab name="app" cwd="$HOME/dev/nordic-epod/nordicepod-portal" focus=true {
     pane stacked=true {
       pane  focus=true name="nvim" command="nvim" args="."
       pane command="$SHELL" name="shell"
       pane size="20%" command="zsh" name="dev server" {
-      args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && firebase use dev && pnpm run dev"
+      args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && pnpm run dev"
     }
     }
   }  
-  tab name="functions" cwd="~/dev/nordic-epod/nordicepod-portal/functions" {
+  tab name="functions" cwd="$HOME/dev/nordic-epod/nordicepod-portal" {
     pane stacked=true focus=true {
       pane size="20%" command="zsh" name="run" {
-        args "-c" "eval \"$(mise activate zsh)\" && if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null ; then npm run emu:down; sleep 1; fi && firebase use dev && npm run emu"
+        args "-c" "eval \"$(mise activate zsh)\" && if lsof -Pi :8081 -sTCP:LISTEN -t >/dev/null ; then pnpm run fun:down; sleep 1; fi && pnpm run fun"
       } 
       pane command="$SHELL" name="shell"
-      pane command="npm" name="build:watch" {
-        args "run" "build:watch"
+      pane command="$SHELL" name="build:watch" {
+        args "-c" "eval \"$(mise activate zsh)\" && pnpm run fun:build:watch"
       }
     }
   }
-  tab name="Notes" cwd="~/Documents/Obsidian Vault/NordicEPOD" {
+  tab name="Email ✉️" cwd="$HOME/dev/nordic-epod/nordicepod-portal" {
+    pane stacked=true focus=true {
+      pane command="$SHELL" name="🏃‍♂️" start_suspended=true {
+        args "-c" "eval \"$(mise activate zsh)\" && pnpm run email:dev"      
+      }
+      pane command="$SHELL" name="shell"
+    }
+  }
+  tab name="Notes" cwd="$HOME/Documents/Obsidian Vault/NordicEPOD" {
       pane name="nvim" command="nvim" args="."
   }
-  tab name="SonarQube" cwd="~/dev/nordic-epod/nordicepod-portal" {
+  tab name="SonarQube" cwd="$HOME/dev/nordic-epod/nordicepod-portal" {
     pane stacked=true {
-      pane start_suspended=true expanded=true command="bash" name="🏃‍"{
-        args "-c" "direnv allow . && eval \"$(direnv export bash)\" && echo $SONAR_TOKEN && npx sonarqube-scanner -Dsonar.projectKey=NordicEpod -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=$SONAR_TOKEN"
+      pane start_suspended=true expanded=true command="zsh" name="🏃‍"{
+        args "-c" "eval \"$(mise activate zsh)\" && echo $SONAR_TOKEN && npx sonarqube-scanner -Dsonar.projectKey=NordicEpod -Dsonar.sources=. -Dsonar.host.url=http://localhost:9000 -Dsonar.token=$SONAR_TOKEN"
       } 
       pane command="$SHELL" name="shell"
       pane start_suspended=true  command="docker" name="📺" {
