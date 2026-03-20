@@ -1,0 +1,12 @@
+(defsrc
+  caps
+)
+
+(defalias
+  hyper (multi lctl lalt lshift lmeta)
+  caps-hyper (tap-hold-press 200 200 esc @hyper)
+)
+
+(deflayer base
+  @caps-hyper
+)
