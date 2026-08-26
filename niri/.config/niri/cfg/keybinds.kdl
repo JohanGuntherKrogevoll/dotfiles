@@ -1,4 +1,34 @@
+// --- Named Workspace ---
+workspace "browser" {
+    open-on-output "DP-2"
+}
+workspace "terminal" {
+    open-on-output "DP-2"
+}
+workspace "communication" {
+    open-on-output "eDP-1"
+}
+workspace "spotify" {
+    open-on-output "eDP-1"
+}
+workspace "edit config" {
+    open-on-output "eDP-1"
+}
+
+window-rule {
+  match at-startup=true app-id="ghostty"
+  open-on-workspace "terminal"
+}
+
+window-rule {
+  match at-startup=true app-id="brave"
+  open-on-workspace "browser"
+}
+
 binds {
+  Mod+Shift+R {
+    spawn-sh "niri msg action move-workspace-to-monitor --reference terminal DP-6 && niri msg action move-workspace-to-monitor --reference terminal DP-4 && niri msg action move-workspace-to-monitor --reference terminal DP-2 && niri msg action move-workspace-to-monitor --reference terminal DP-1 && niri msg action move-workspace-to-monitor --reference browser DP-4 && niri msg action move-workspace-to-monitor --reference browser DP-2"
+  }   
 
     // ────────────── Keybindings ──────────────
     // https://github.com/YaLTeR/niri/wiki/Configuration:-Key-Bindings
@@ -8,13 +38,21 @@ binds {
 
     Mod+Shift+ESCAPE                     { show-hotkey-overlay; }
 
+    // ─── Named Workspaces ───
+    Mod+Alt+Ctrl+Shift+T                { focus-workspace "terminal"; }
+    Mod+Alt+Ctrl+Shift+B                { focus-workspace "browser"; }
+    Mod+Alt+Ctrl+Shift+C                { focus-workspace "communication"; }
+    Mod+Alt+Ctrl+Shift+S                { focus-workspace "spotify"; }
+    Mod+Alt+Ctrl+Shift+E                { focus-workspace "edit config"; }
+
     // ─── Applications ───
-    Mod+Alt+Ctrl+Shift+T                hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
     Mod+T                               hotkey-overlay-title="Open Terminal: Ghostty" { spawn "ghostty"; }
     Alt+Space                           hotkey-overlay-title="Open App Launcher: noctalia launcher" { spawn-sh "qs -c noctalia-shell ipc call launcher toggle"; }
     Mod+B                               hotkey-overlay-title="Open Browser: Brave" { spawn-sh "brave --enable-features=TouchpadOverscrollHistoryNavigation"; }
+    Mod+V                               hotkey-overlay-title="Vercel" { spawn "brave" "--app=https://vercel.com/gapit/nordicepod-portal/logs?timeline=pastDay&search=level%3Aerror&panelState=opened"; }
     Mod+ALT+L                           hotkey-overlay-title="Lock Screen: noctalia lock" { spawn-sh "qs -c noctalia-shell ipc call lockScreen lock"; }
     Mod+Shift+Q                         hotkey-overlay-title="Session Menu: noctalia sessionMenu" { spawn-sh "qs -c noctalia-shell ipc call sessionMenu toggle"; }
+
 
     // Please choose your own file manager.
     Mod+E                               hotkey-overlay-title="File Manager: Nautilus" { spawn "nautilus"; }

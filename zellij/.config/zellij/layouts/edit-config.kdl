@@ -13,7 +13,7 @@ layout {
   tab name="yazi" cwd="~/.config" {
     pane command="yazi"
   }
-  tab name="Karabiner elements" cwd="~/dotfiles/karabiner-elements/.config/karabiner" {
+  tab name="Karabiner elements" cwd="~/dev/dotfiles/karabiner-elements/.config/karabiner" {
     pane split_direction="vertical" {
       pane command="nvim" {
         args "./rules.ts"
@@ -23,7 +23,7 @@ layout {
       }
     }
   }
-  tab name="lvim" cwd="~/dotfiles" {
+  tab name="lvim" cwd="~/dev/dotfiles" {
     pane stacked=true{
       pane command="bash" {
         args "-c" "nvim ."

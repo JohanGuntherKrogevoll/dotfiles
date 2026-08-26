@@ -6,7 +6,7 @@ input {
         xkb {
             //If you want to overwrite your keyboard layout,
             // uncomment the line below and change the layout accordingly.
-            //layout "us" // Use the American keyboard layout
+            layout "no"
         }
         numlock // Enable numlock on startup
         repeat-rate 70
@@ -17,6 +17,6 @@ input {
         tap // Enable tap-to-click
     }
 
-    focus-follows-mouse // Automatically focus windows under the mouse pointer
+    focus-follows-mouse max-scroll-amount="99%"
     workspace-auto-back-and-forth // Enable workspace back & forth switching
 }

@@ -12,11 +12,13 @@ layout {
   }
   tab name="app" cwd="$HOME/dev/nordic-epod/nordicepod-portal" focus=true {
     pane stacked=true {
-      pane  focus=true name="nvim" command="nvim" args="."
+      pane  command="zsh" focus=true name="nvim" {
+        args "-c" "eval \"$(mise activate zsh)\" && nvim ."
+      }
       pane command="$SHELL" name="shell"
       pane size="20%" command="zsh" name="dev server" {
-      args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && pnpm run dev"
-    }
+        args "-c" "eval \"$(mise activate zsh)\" && lsof -ti:3000 | xargs kill -9 2>/dev/null || true && pnpm run dev"
+      }
     }
   }  
   tab name="functions" cwd="$HOME/dev/nordic-epod/nordicepod-portal" {
@@ -34,6 +36,14 @@ layout {
     pane stacked=true focus=true {
       pane command="$SHELL" name="🏃‍♂️" start_suspended=true {
         args "-c" "eval \"$(mise activate zsh)\" && pnpm run email:dev"      
+      }
+      pane command="$SHELL" name="shell"
+    }
+  }
+  tab name="qstash CLI" cwd="$HOME/dev/nordic-epod/nordicepod-portal" {
+    pane stacked=true focus=true {
+      pane command="$SHELL" name="🏃‍♂️" start_suspended=true {
+        args "-c" "eval \"$(mise activate zsh)\" && pnpm run qs:dev"      
       }
       pane command="$SHELL" name="shell"
     }

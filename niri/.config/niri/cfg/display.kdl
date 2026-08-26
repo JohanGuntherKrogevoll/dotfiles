@@ -7,7 +7,30 @@ output "AU Optronics 0x2EA5 Unknown" {
   position x=0 y=0
 }
 output "Dell Inc. DELL U3421WE HRDC753" {
-    mode "3440x1440@59.973" // Set resolution and refresh rate
-    scale 1 // No scaling (use 2 for HiDPI)
-    position x=0 y=-1460
+  mode "3440x1440@59.973"
+  scale 1 
+  position x=0 y=-1460
 }
+
+output "Lenovo Group Limited N27q UT333P4N"{
+  mode "2560x1440@59.951"
+  scale 1
+  position x=0 y=-1460
+}
+output "GIGA-BYTE TECHNOLOGY CO., LTD. M27Q 23340B001557"{
+  mode "2560x1440@60.001"
+  scale 1 
+  position x=2560 y=-1460
+}
+
+output "Dell Inc. DELL U3421WE HLCF753" {
+  mode "3440x1440@59.973"
+  scale 1
+  position x=0 y=-1460
+}
+output "GIGA-BYTE TECHNOLOGY CO., LTD. M27Q 0x01010101"{
+  mode "2560x1440@60.001"
+  scale 1 
+  position x=-2560 y=-1460
+}
+
